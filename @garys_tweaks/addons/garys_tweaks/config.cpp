@@ -9,9 +9,23 @@ class CfgPatches
 		{	"ace_ballistics",
 			"ace_weather",
 			"rhsusf_main",
+			"rhs_main",
+			"rhsgref_main",
+			"rhssaf_main",
+			"rhsusf_main",
+			"UK3CB_BAF_Weapons",
+			"UK3CB_BAF_Equipment",
+			"UK3CB_BAF_Weapons_RHS_ammo_compatibility_",
+			"hlc_core",
+			"hlc_rhs_compat_CORE",
+			"hlc_ace3_Compat_CORE",
+			"ace_compat_rhs_afrf3",
+			"ace_compat_rhs_gref3",
+			"ace_compat_rhs_saf3",
 			"ace_compat_rhs_usf3"
 			
 		};
+
  	};
 };
 class CfgAmmo
@@ -517,1236 +531,26 @@ class CfgWeapons
 		};
 		ace_nlaw_enabled=0;
 	};
-
-};
-class CfgMagazines
-{
-    class CA_Magazine;
-
-	class rhs_mag_20Rnd_SCAR_762x51_SD: CA_Magazine
+	class Vest_NoCamo_Base: ItemCore
 	{
-		author="$STR_RHSUSF_AUTHOR_FULL";
-		scope=2;
-		displayName="20rnd SCAR SD";
-		displayNameShort="SD";
-		count=20;
-		ammo="ACE_762x51_Ball_Subsonic";
-		mass=16.24;
-		initSpeed=330;
-		descriptionShort="Caliber: 7.62x51mm NATO<br />Rounds: 20<br />Used in: SCAR-H";
-		model="rhsusf\addons\rhsusf_weapons\magazines\rhs_20rnd_scar_mag.p3d";
-		modelSpecial="rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_MK17_20rnd";
-		modelSpecialIsProxy=1;
-	};
-		class rhs_mag_20Rnd_SCAR_762x51_SD_bk: rhs_mag_20Rnd_SCAR_762x51_SD
-	{
-		displayName="20rnd SCAR SD (black)";
-	};
-}
-class CfgMagazineWells
-{
-    	class CBA_762x51_SCAR
-	{
-		RHS_Magazines[]=
-		{
-			"rhs_mag_20Rnd_SCAR_762x51_SD"
-		};
-		RHSSAF_Magazines[]=
-		{
-			"rhs_mag_20Rnd_SCAR_762x51_SD_bk"
-		};
-	};
-	class CBA_762x51_SCAR_EGLM
-	{
-		RHS_Magazines[]=
-		{
-			"rhs_mag_20Rnd_SCAR_762x51_SD"
-        };
-    };
-};
-class CfgWeapons
-{
-	access=1;
-	class Default
-	
-	clas ItemCore;
-
-	class InventoryItem_Base_F
-	{
-		type=0;
-	};
-	class VestItem: InventoryItem_Base_F;
-	class BinocularItem: InventoryItem_Base_F
-	{
-		type=617;
-	};
-	class HMDItem: InventoryItem_Base_F
-	{
-		type=616;
-	};
-	class RadioItem: InventoryItem_Base_F
-	{
-		type=611;
-	};
-	class GoggleItem: InventoryItem_Base_F
-	{
-		type=603;
-	};
-	class ScubaItem: InventoryItem_Base_F
-	{
-		type=604;
-	};
-	class FirstAidKit: ItemCore
-	{
-		_generalMacro="FirstAidKit";
-		descriptionShort="$STR_A3_cfgWeapons_FirstAidKit1";
-		class ItemInfo: InventoryFirstAidKitItem_Base_F
-		{
-			mass=4;
-		};
-		type=0;
-	};
-	class Medikit: ItemCore
-	{
-		_generalMacro="Medikit";
-		descriptionShort="$STR_A3_cfgWeapons_Medikit1";
-		descriptionUse="$STR_A3_CfgWeapons_use_Medikit0";
-		class ItemInfo: MedikitItem
-		{
-			mass=60;
-		};
-		type=0;
-	};
-	class ToolKit: ItemCore
-	{
-		_generalMacro="ToolKit";
-		descriptionShort="$STR_A3_cfgWeapons_ToolKit1";
-		class ItemInfo: ToolKitItem
-		{
-			mass=80;
-		};
-	};
-	class Uniform_Base: ItemCore
-	{
-		allowedSlots[]={901};
-		class ItemInfo: UniformItem
-		{
-			uniformClass="B_Soldier_F";
-			containerClass="Supply0";
-			mass=0;
-		};
-		ACE_GForceCoef=1;
-	};
-	class U_BasicBody: Uniform_Base
-	{
-		{
-			uniformClass="Underwear_F";
-			containerClass="Supply0";
-			mass=5;
-		};
-	};
-	class U_B_CombatUniform_mcam: Uniform_Base
-	{
-		{
-			uniformClass="B_Soldier_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_mcam_tshirt: Uniform_Base
-	{
-		{
-			uniformClass="B_soldier_AR_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_mcam_vest: Uniform_Base
-	{
-		{
-			uniformClass="B_Soldier_SL_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_GhillieSuit: Uniform_Base
-	{
-		{
-			uniformClass="B_sniper_F";
-			containerClass="Supply60";
-			mass=60;
-		};
-	};
-	class U_B_HeliPilotCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="B_Helipilot_F";
-			containerClass="Supply40";
-			mass=60;
-		};
-		ACE_GForceCoef=0.80000001;
-	};
-	class U_B_Wetsuit: Uniform_Base
-	{
-		{
-			uniformClass="B_diver_F";
-			containerClass="Supply80";
-			uniformType="Neopren";
-			mass=60;
-		};
-	};
-	class U_O_CombatUniform_ocamo: Uniform_Base
-	{
-		{
-			uniformClass="O_Soldier_F";
-			containerClass="Supply40";
-			mass=80;
-		};
-	};
-	class U_O_GhillieSuit: Uniform_Base
-	{
-		{
-			uniformClass="O_sniper_F";
-			containerClass="Supply60";
-			mass=100;
-		};
-	};
-	class U_O_PilotCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="O_helipilot_F";
-			containerClass="Supply60";
-			mass=100;
-		};
-		ACE_GForceCoef=0.80000001;
-	};
-	class U_O_Wetsuit: Uniform_Base
-	{
-		{
-			uniformClass="O_diver_f";
-			containerClass="Supply80";
-			uniformType="Neopren";
-			mass=60;
-		};
-	};
-	class U_C_Poloshirt_blue: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_1_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Poloshirt_burgundy: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_2_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Poloshirt_stripped: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_3_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Poloshirt_tricolour: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_4_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Poloshirt_salmon: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_5_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Poloshirt_redwhite: Uniform_Base
-	{
-		{
-			uniformClass="C_man_polo_6_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Commoner1_1: Uniform_Base
-	{
-		{
-			uniformClass="C_man_1_1_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Commoner1_2: Uniform_Base
-	{
-		{
-			uniformClass="C_man_1_2_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_C_Commoner1_3: Uniform_Base
-	{
-		{
-			uniformClass="C_man_1_3_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_Rangemaster: Uniform_Base
-	{
-		{
-			uniformClass="B_RangeMaster_F";
-			containerClass="Supply20";
-			mass=40;
-		};
-	};
-	class U_NikosBody: Uniform_Base
-	{
-		{
-			uniformClass="C_Nikos";
-			containerClass="Supply20";
-			mass=10;
-		};
-	};
-	class U_OrestesBody: Uniform_Base
-	{
-		{
-			uniformClass="C_Orestes";
-			containerClass="Supply20";
-			mass=10;
-		};
-	};
-	class U_B_CombatUniform_mcam_worn: Uniform_Base
-	{
-		{
-			uniformClass="B_Soldier_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_wdl: Uniform_Base
-	{
-		{
-			uniformClass="B_SoldierW_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_wdl_tshirt: Uniform_Base
-	{
-		{
-			uniformClass="B_SoldierW_02_f";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_wdl_vest: Uniform_Base
-	{
-		{
-			uniformClass="B_SoldierW_03_f";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_sgg: Uniform_Base
-	{
-		{
-			uniformClass="B_SoldierS_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_sgg_tshirt: Uniform_Base
-	{
-		{
-			uniformClass="B_soldier_AR_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CombatUniform_sgg_vest: Uniform_Base
-	{
-		{
-			uniformClass="B_Soldier_SL_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_SpecopsUniform_sgg: Uniform_Base
-	{
-		{
-			uniformClass="B_recon_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_PilotCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="B_Pilot_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		ACE_GForceCoef=0.80000001;
-	};
-	class U_O_CombatUniform_oucamo: Uniform_Base
-	{
-		{
-			uniformClass="O_soldierU_F";
-			containerClass="Supply40";
-			mass=80;
-		};
-	};
-	class U_O_SpecopsUniform_ocamo: Uniform_Base
-	{
-		{
-			uniformClass="O_crew_F";
-			containerClass="Supply40";
-			mass=80;
-		};
-	};
-	class U_O_SpecopsUniform_blk: Uniform_Base
-	{
-		{
-			uniformClass="O_recon_F";
-			containerClass="Supply40";
-			mass=80;
-		};
-	};
-	class U_O_OfficerUniform_ocamo: Uniform_Base
-	{
-		{
-			uniformClass="O_officer_F";
-			containerClass="Supply40";
-			mass=60;
-		};
-	};
-	class U_I_CombatUniform: Uniform_Base
-	{
-		{
-			uniformClass="I_soldier_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_I_CombatUniform_tshirt: Uniform_Base
-	{
-		{
-			uniformClass="I_Soldier_lite_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_I_CombatUniform_shortsleeve: Uniform_Base
-	{
-		{
-			uniformClass="I_Soldier_lite_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_I_pilotCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="I_pilot_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		ACE_GForceCoef=0.80000001;
-	};
-	class U_I_HeliPilotCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="I_helipilot_F";
-			containerClass="Supply40";
-			mass=60;
-		};
-		ACE_GForceCoef=0.80000001;
-	};
-	class U_I_GhillieSuit: Uniform_Base
-	{
-		{
-			uniformClass="I_sniper_F";
-			containerClass="Supply60";
-			mass=60;
-		};
-	};
-	class U_I_OfficerUniform: Uniform_Base
-	{
-		{
-			uniformClass="I_officer_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_I_Wetsuit: Uniform_Base
-	{
-		{
-			uniformClass="I_diver_f";
-			containerClass="Supply80";
-			uniformType="Neopren";
-			mass=60;
-		};
-	};
-	class U_Competitor: Uniform_Base
-	{
-		{
-			uniformClass="B_Competitor_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_MillerBody: Uniform_Base
-	{
-		{
-			uniformClass="B_Story_SF_Captain_F";
-			containerClass="Supply0";
-			mass=1;
-		};
-	};
-	class U_KerryBody: Uniform_Base
-	{
-		{
-			uniformClass="B_Story_Protagonist_F";
-			containerClass="Supply0";
-			mass=1;
-		};
-	};
-	class U_AttisBody: Uniform_Base
-	{
-			mass=1;
-		};
-
-	class U_AntigonaBody: Uniform_Base
-	{
-			mass=1;
-		};
-	class U_IG_Menelaos: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Novak: Uniform_Base
-	{
-			mass=30;
-		};
-	class U_OI_Scientist: Uniform_Base
-	{
-		{
-			uniformClass="Underwear_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_IG_Guerilla1_1: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_IG_Guerilla2_1: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_AR_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_IG_Guerilla2_2: Uniform_Base
-	{
-		{
-			uniformClass="I_G_engineer_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_IG_Guerilla2_3: Uniform_Base
-	{
-		{
-			uniformClass="I_G_medic_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_IG_Guerilla3_1: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_M_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_IG_Guerilla3_2: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_LAT_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_IG_leader: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_TL_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_BG_Guerilla1_1: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_BG_Guerilla2_1: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_AR_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_BG_Guerilla2_2: Uniform_Base
-	{
-		{
-			uniformClass="B_G_engineer_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_BG_Guerilla2_3: Uniform_Base
-	{
-		{
-			uniformClass="B_G_medic_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_BG_Guerilla3_1: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_M_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_BG_Guerilla3_2: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_LAT_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_BG_leader: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_TL_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_OG_Guerilla1_1: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_OG_Guerilla2_1: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_AR_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_OG_Guerilla2_2: Uniform_Base
-	{
-		{
-			uniformClass="O_G_engineer_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_OG_Guerilla2_3: Uniform_Base
-	{
-		{
-			uniformClass="O_G_medic_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_OG_Guerilla3_1: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_M_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_OG_Guerilla3_2: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_LAT_F";
-			containerClass="Supply50";
-			mass=50;
-		};
-	};
-	class U_OG_leader: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_TL_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_C_Poor_1: Uniform_Base
-	{
-		{
-			uniformClass="C_man_p_fugitive_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_Poor_2: Uniform_Base
-	{
-		{
-			uniformClass="C_man_p_beggar_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_Scavenger_1: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Scavenger_2: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Farmer: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Fisherman: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_WorkerOveralls: Uniform_Base
-	{
-		{
-			uniformClass="C_man_w_farmer_2_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_FishermanOveralls: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_WorkerCoveralls: Uniform_Base
-	{
-		{
-			uniformClass="C_man_w_worker_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_HunterBody_grn: Uniform_Base
-	{
-		{
-			uniformClass="C_man_hunter_1_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_HunterBody_brn: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Commoner2_1: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Commoner2_2: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Commoner2_3: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_PriestBody: Uniform_Base
-	{
-			mass=30;
-		};
-
-	class U_C_Poor_shorts_1: Uniform_Base
-	{
-		{
-			uniformClass="C_man_p_shorts_1_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_Poor_shorts_2: Uniform_Base
-	{
-			mass=30;
-		};
-	class U_C_Commoner_shorts: Uniform_Base
-	{
-		{
-			uniformClass="C_man_shorts_1_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_C_ShirtSurfer_shorts: Uniform_Base
-	{
-		{
-			uniformClass="C_man_shorts_2_F";
-			containerClass="Supply10";
-			mass=30;
-		};
-	};
-	class U_C_TeeSurfer_shorts_1: Uniform_Base
-	{
-		{
-			uniformClass="C_man_shorts_3_F";
-			containerClass="Supply10";
-			mass=30;
-		};
-	};
-	class U_C_TeeSurfer_shorts_2: Uniform_Base
-	{
-		{
-			uniformClass="C_man_shorts_4_F";
-			containerClass="Supply10";
-			mass=30;
-		};
-	};
-	class U_B_CTRG_1: Uniform_Base
-	{
-		{
-			uniformClass="B_CTRG_soldier_GL_LAT_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CTRG_2: Uniform_Base
-	{
-		{
-			uniformClass="B_CTRG_soldier_engineer_exp_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_CTRG_3: Uniform_Base
-	{
-		{
-			uniformClass="B_CTRG_soldier_AR_A_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_B_survival_uniform: Uniform_Base
-	{
-		{
-			uniformClass="b_soldier_survival_F";
-			containerClass="Supply40";
-			uniformType="Neopren";
-			mass=60;
-		};
-	};
-	class U_I_G_Story_Protagonist_F: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Story_Protagonist_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_I_G_resistanceLeader_F: Uniform_Base
-	{
-		{
-			uniformClass="I_G_resistanceLeader_F";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class U_C_Journalist: Uniform_Base
-	{
-		{
-			uniformClass="C_journalist_F";
-			containerClass="Supply20";
-			mass=10;
-		};
-	};
-	class U_C_Scientist: Uniform_Base
-	{
-		{
-			uniformClass="C_scientist_F";
-			containerClass="Supply20";
-			mass=10;
-		};
-	};
-	class U_NikosAgedBody: Uniform_Base
-	{
-		{
-			uniformClass="C_Nikos_aged";
-			containerClass="Supply20";
-			mass=10;
-		};
-	};
-	class U_B_Protagonist_VR: Uniform_Base
-	{
-		{
-			uniformClass="B_Protagonist_VR_F";
-			containerClass="Supply500";
-			mass=60;
-		};
-	};
-	class U_O_Protagonist_VR: Uniform_Base
-	{
-		{
-			uniformClass="O_Protagonist_VR_F";
-			containerClass="Supply500";
-			mass=60;
-		};
-	};
-	class U_I_Protagonist_VR: Uniform_Base
-	{
-		{
-			uniformClass="I_Protagonist_VR_F";
-			containerClass="Supply500";
-			mass=60;
-		};
-	};
-	class U_C_Protagonist_VR: Uniform_Base
-	{
-		{
-			uniformClass="C_Protagonist_VR_F";
-			containerClass="Supply500";
-			mass=60;
-		};
-	};
-	class U_IG_Guerrilla_6_1: Uniform_Base
-	{
-		{
-			uniformClass="I_G_Soldier_LAT_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_BG_Guerrilla_6_1: Uniform_Base
-	{
-		{
-			uniformClass="B_G_Soldier_LAT_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_OG_Guerrilla_6_1: Uniform_Base
-	{
-		{
-			uniformClass="O_G_Soldier_LAT_F";
-			containerClass="Supply30";
-			mass=30;
-		};
-	};
-	class U_B_Soldier_VR: Uniform_Base
-		{
-			uniformClass="B_Soldier_VR_F";
-			containerClass="Supply0";
-			mass=0;
-		};
-	class U_O_Soldier_VR: Uniform_Base
-		{
-			uniformClass="O_Soldier_VR_F";
-			containerClass="Supply0";
-			mass=0;
-		};
-	class U_I_Soldier_VR: Uniform_Base
-		{
-			uniformClass="I_Soldier_VR_F";
-			containerClass="Supply0";
-			mass=0;
-		};
-	class U_C_Soldier_VR: Uniform_Base
-		{
-			uniformClass="C_Soldier_VR_F";
-			containerClass="Supply0";
-			mass=0;
-		};
-	class U_C_Driver_1: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_2: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_2_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_3: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_3_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_4: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_4_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_Marshal: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Marshal_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_black: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_black_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_blue: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_blue_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_green: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_green_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_red: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_red_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_white: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_white_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_yellow: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_yellow_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_C_Driver_1_orange: Uniform_Base
-	{
-		class ItemInfo: UniformItem
-		{
-			uniformClass="C_Driver_1_orange_F";
-			containerClass="Supply20";
-			mass=60;
-		};
-	};
-	class U_B_FullGhillie_lsh: Uniform_Base
-	{
-		{
-			uniformClass="B_ghillie_lsh_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
-	};
-	class U_B_FullGhillie_sard: Uniform_Base
-	{
-		{
-			uniformClass="B_ghillie_sard_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
-	};
-	class U_B_FullGhillie_ard: Uniform_Base
-	{
-		{
-			uniformClass="B_ghillie_ard_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
-	};
-	class U_O_FullGhillie_lsh: Uniform_Base
-	{
-		{
-			uniformClass="O_ghillie_lsh_F";
-			containerClass="Supply60";
-			mass=120;
-		};
-		DLC="Mark";
-	};
-	class U_O_FullGhillie_sard: Uniform_Base
-	{
-		{
-			uniformClass="O_ghillie_sard_F";
-			containerClass="Supply60";
-			mass=120;
-		};
-		DLC="Mark";
-	};
-	class U_O_FullGhillie_ard: Uniform_Base
-	{
-		{
-			uniformClass="O_ghillie_ard_F";
-			containerClass="Supply60";
-			mass=120;
-		};
-		DLC="Mark";
-	};
-	class U_I_FullGhillie_lsh: Uniform_Base
-	{
-		{
-			uniformClass="I_ghillie_lsh_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
-	};
-	class U_I_FullGhillie_sard: Uniform_Base
-	{
-		{
-			uniformClass="I_ghillie_sard_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
-	};
-	class U_I_FullGhillie_ard: Uniform_Base
-	{
-		{
-			uniformClass="I_ghillie_ard_F";
-			containerClass="Supply60";
-			mass=80;
-		};
-		DLC="Mark";
+		class ItemInfo;
 	};
 	class Vest_Camo_Base: ItemCore
 	{
-		_generalMacro="Vest_Camo_Base";
-		weaponPoolAvailable=1;
-		allowedSlots[]={901};
-		class ItemInfo: VestItem
-		{
-			mass=0;
-		};
+		class ItemInfo;
 	};
-	class Vest_NoCamo_Base: ItemCore
+	class InventoryItem_Base_F
 	{
-		_generalMacro="Vest_NoCamo_Base";
-		weaponPoolAvailable=1;
-		allowedSlots[]={901};
+		scope=0;
+		type=0;
 	};
-	class V_Rangemaster_belt: Vest_NoCamo_Base
-	{
-		_generalMacro="V_Rangemaster_belt";
-		class ItemInfo: ItemInfo
-		{
-			containerClass="Supply40";
-			mass=5;
-		};
+	class HeadgearItem
+	{	
+		class InventoryItem_Base_F;
 	};
-	class V_BandollierB_khk: Vest_Camo_Base
+	class VestItem
 	{
-		_generalMacro="V_BandollierB_khk";
-		weaponPoolAvailable=1;
-		{
-			containerClass="Supply80";
-			mass=10;
-		};
-	};
-	class V_BandollierB_cbr: V_BandollierB_khk
-	{
-		_generalMacro="V_BandollierB_cbr";
-		{
-		};
-	};
-	class V_BandollierB_rgr: V_BandollierB_khk
-	{
-		_generalMacro="V_BandollierB_rgr";
-		{
-		};
-	};
-	class V_BandollierB_blk: V_BandollierB_khk
-	{
-		_generalMacro="V_BandollierB_blk";
-		{
-		};
-	};
-	class V_BandollierB_oli: V_BandollierB_khk
-	{
-		_generalMacro="V_BandollierB_oli";
-		{
+		class InventoryItem_Base_F;
 	};
 	class V_PlateCarrier1_rgr: Vest_NoCamo_Base
 	{
@@ -1815,7 +619,6 @@ class CfgWeapons
 	class V_PlateCarrier2_blk: V_PlateCarrier2_rgr
 	{
 		_generalMacro="V_PlateCarrier2_blk";
-		{
 	};
 	class V_PlateCarrier3_rgr: Vest_NoCamo_Base
 	{
@@ -1854,9 +657,11 @@ class CfgWeapons
 		_generalMacro="V_PlateCarrierGL_rgr";
 		overviewName="$STR_B_SOLDIER_GL_F0";
 		descriptionShort="$STR_A3_SP_ER";
+		class ItemInfo: ItemInfo
 		{
 			containerClass="Supply140";
 			mass=100;
+			class HitpointsProtectionInfo
 			{
 				class Neck
 				{
@@ -1939,9 +744,11 @@ class CfgWeapons
 	{
 		_generalMacro="V_PlateCarrierSpec_rgr";
 		descriptionShort="$STR_A3_SP_AL_V";
+		class ItemInfo: ItemInfo
 		{
 			containerClass="Supply100";
 			mass=120;
+			class HitpointsProtectionInfo
 			{
 				class Neck
 				{
@@ -1974,7 +781,6 @@ class CfgWeapons
                     passthrough=0.2;				};
 			};
 		};
-		DLC="Mark";
 	};
 	class V_PlateCarrierSpec_blk: V_PlateCarrierSpec_rgr
 	{
@@ -2044,12 +850,15 @@ class CfgWeapons
 	class V_TacVest_brn: V_TacVest_khk
 	{
 		_generalMacro="V_TacVest_brn";
+	};
 	class V_TacVest_oli: V_TacVest_khk
 	{
 		_generalMacro="V_TacVest_oli";
+	};
 	class V_TacVest_blk: V_TacVest_khk
 	{
 		_generalMacro="V_TacVest_blk";
+	};
 	class V_TacVest_camo: Vest_Camo_Base
 	{
 		_generalMacro="V_TacVest_camo";
@@ -2111,7 +920,7 @@ class CfgWeapons
                     passthrough=0.6;				};
 			};
 		};
-	};
+	};	
 	class V_TacVestIR_blk: Vest_NoCamo_Base
 	{
 		_generalMacro="V_TacVestIR_blk";
@@ -2352,42 +1161,11 @@ class CfgWeapons
 	};
 	class V_RebreatherB: Vest_Camo_Base
 	{
-		_generalMacro="V_RebreatherB";
-		hiddenUnderwaterSelections[]=
-		{
-			"hide"
-		};
-		shownUnderwaterSelections[]=
-		{
-			"unhide",
-			"unhide2"
-		};
-		hiddenUnderwaterSelectionsTextures[]=
-		{
-			"\A3\characters_f\common\data\diver_equip_nato_co.paa",
-			"\A3\characters_f\common\data\diver_equip_nato_co.paa",
-			"\A3\characters_f\data\visors_ca.paa"
-		};
 		class ItemInfo: ItemInfo
 		{
 			containerClass="Supply0";
 			mass=80;
 			vestType="Rebreather";
-			hiddenUnderwaterSelections[]=
-			{
-				"hide"
-			};
-			shownUnderwaterSelections[]=
-			{
-				"unhide",
-				"unhide2"
-			};
-			hiddenUnderwaterSelectionsTextures[]=
-			{
-				"\A3\characters_f\common\data\diver_equip_nato_co.paa",
-				"\A3\characters_f\common\data\diver_equip_nato_co.paa",
-				"\A3\characters_f\data\visors_ca.paa"
-			};
 			class HitpointsProtectionInfo
 			{
 				class Diaphragm
@@ -2414,42 +1192,27 @@ class CfgWeapons
 	};
 	class V_RebreatherIR: V_RebreatherB
 	{
-		_generalMacro="V_RebreatherIR";
-		{
-			"\A3\characters_f\common\data\diver_equip_iran_co.paa",
-			"\A3\characters_f\common\data\diver_equip_iran_co.paa",
-			"\A3\characters_f\data\visors_ca.paa"
-		};
+
 	};
 	class V_RebreatherIA: V_RebreatherB
 	{
-		_generalMacro="V_RebreatherIA";
-		{
-			"\A3\characters_f\common\data\diver_equip_rus_co.paa",
-			"\A3\characters_f\common\data\diver_equip_rus_co.paa",
-			"\A3\characters_f\data\visors_ca.paa"
-		};
+
 	};
 	class V_PlateCarrier_Kerry: V_PlateCarrier1_rgr
 	{
 		_generalMacro="V_PlateCarrier_Kerry";
- 
 	};
 	class V_PlateCarrierL_CTRG: V_PlateCarrier1_rgr
 	{
 		_generalMacro="V_PlateCarrierL_CTRG";
-		{
 	};
 	class V_PlateCarrierH_CTRG: V_PlateCarrier2_rgr
 	{
 		_generalMacro="V_PlateCarrierH_CTRG";
-		{
 	};
 	class V_I_G_resistanceLeader_F: V_TacVest_camo
 	{
 		_generalMacro="V_I_G_resistanceLeader_F";
-		{
-		};
 	};
 	class V_Press_F: Vest_Camo_Base
 	{
@@ -2495,6 +1258,7 @@ class CfgWeapons
 		class ItemInfo: HeadgearItem
 		{
 			mass=0;
+			class HitpointsProtectionInfo
 			{
 				class Head
 				{
@@ -15169,45 +13933,29 @@ class CfgWeapons
 	};
 	class rhsusf_plateframe_sapi: rhsusf_iotv_ocp_base
 	{
-			"Camo3",
-			"Camo4",
-			"Camo5",
-			"Camo6",
-			"Camo7"
-		};
-			"rhsusf\addons\rhsusf_infantry2\gear\vests\mbav\data\mbav_gear_co.paa",
-			"rhsusf\addons\rhsusf_infantry\gear\vests\data\rhs_vest_iotv2_co.paa",
-			"rhsusf\addons\rhsusf_weapons\mag_proxies\data\rhs_30rn_usgi_alum_co.paa",
-			"rhsusf\addons\rhsusf_weapons\mag_proxies\data\rhs_30rn_magpul_black_co.paa",
-			"rhsusf\addons\rhsusf_weapons3\mk17\data\mk17_co.paa"
-		};
 		descriptionShort="Armor Level III";
 		class ItemInfo: ItemInfo
 		{
-				"Camo3",
-				"Camo4",
-				"Camo5",
-				"Camo6",
-				"Camo7"
-			};
-			containerClass="Supply20";
-			mass=60;
+
 			class HitpointsProtectionInfo
 			{
 				class Chest
 				{
 					HitpointName="HitChest";
 					armor=22;
-                    passthrough=0.35;				};
+					PassThrough=0.35;
+				};
 				class Diaphragm
 				{
 					HitpointName="HitDiaphragm";
 					armor=22;
-                    passthrough=0.35;				};
+					PassThrough=0.35;
+				};
 				class Body
 				{
 					hitpointName="HitBody";
-                    passthrough=0.35;				};
+					passThrough=0.35;
+				};
 			};
 		};
 	};
@@ -15309,6 +14057,7 @@ class CfgWeapons
 	class rhssaf_helmet_m97_black_nocamo: rhssaf_helmet_m97_olive_nocamo
 	{
 		dlc="RHS_SAF";
+	};
 	class rhssaf_helmet_m97_black_nocamo_black_ess: rhssaf_helmet_m97_olive_nocamo_black_ess
 	{
 		dlc="RHS_SAF";
@@ -15484,7 +14233,7 @@ class CfgWeapons
 			uniformClass="rhssaf_soldier_army_para_digital_base";
 			containerClass="Supply60";
 			mass=40;
-	};
+		};
 	};
 	class rhssaf_uniform_m10_digital_desert: Uniform_Base
 	{
@@ -16647,9 +15396,8 @@ class CfgWeapons
 	};
 	class rhsgref_helmet_pasgt_press: rhsgref_helmet_pasgt_erdl
 	{
-		{
+	
 		};
-	};
 	class rhsgref_helmet_pasgt_3color_desert: rhsgref_helmet_pasgt_erdl;
 	class rhsgref_6b23_khaki_nco: rhsgref_6b23_khaki
 	{
@@ -17914,3 +16662,51 @@ class CfgWeapons
 		};
     };
 };
+
+class CfgMagazines
+{
+    class CA_Magazine;
+
+	class rhs_mag_20Rnd_SCAR_762x51_SD: CA_Magazine
+	{
+		author="$STR_RHSUSF_AUTHOR_FULL";
+		scope=2;
+		displayName="20rnd SCAR SD";
+		displayNameShort="SD";
+		count=20;
+		ammo="ACE_762x51_Ball_Subsonic";
+		mass=16.24;
+		initSpeed=330;
+		descriptionShort="Caliber: 7.62x51mm NATO<br />Rounds: 20<br />Used in: SCAR-H";
+		model="rhsusf\addons\rhsusf_weapons\magazines\rhs_20rnd_scar_mag.p3d";
+		modelSpecial="rhsusf\addons\rhsusf_weapons\mag_proxies\rhs_mag_762x51_MK17_20rnd";
+		modelSpecialIsProxy=1;
+	};
+		class rhs_mag_20Rnd_SCAR_762x51_SD_bk: rhs_mag_20Rnd_SCAR_762x51_SD
+	{
+		displayName="20rnd SCAR SD (black)";
+	};
+}
+class CfgMagazineWells
+{
+    	class CBA_762x51_SCAR
+	{
+		RHS_Magazines[]=
+		{
+			"rhs_mag_20Rnd_SCAR_762x51_SD"
+		};
+		RHSSAF_Magazines[]=
+		{
+			"rhs_mag_20Rnd_SCAR_762x51_SD_bk"
+		};
+	};
+	class CBA_762x51_SCAR_EGLM
+	{
+		RHS_Magazines[]=
+		{
+			"rhs_mag_20Rnd_SCAR_762x51_SD"
+        };
+    };
+};
+
+	
