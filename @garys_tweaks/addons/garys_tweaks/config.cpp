@@ -18,7 +18,6 @@ class CfgPatches
 			"UK3CB_BAF_Weapons_RHS_ammo_compatibility_",
 			"hlc_core",
 			"hlc_rhs_compat_CORE",
-			"hlc_ace3_Compat_CORE",
 			"ace_compat_rhs_afrf3",
 			"ace_compat_rhs_gref3",
 			"ace_compat_rhs_saf3",
