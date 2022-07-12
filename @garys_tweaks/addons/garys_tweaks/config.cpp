@@ -15,7 +15,6 @@ class CfgPatches
 			"rhsusf_main",
 			"UK3CB_BAF_Weapons",
 			"UK3CB_BAF_Equipment",
-			"UK3CB_BAF_Weapons_RHS_ammo_compatibility_",
 			"hlc_core",
 			"hlc_rhs_compat_CORE",
 			"ace_compat_rhs_afrf3",
@@ -33,9 +32,11 @@ class CfgAmmo
 
 		class rhs_ammo_556x45_M855A1_Ball: B_556x45_Ball
 	{
+		model="\A3\Weapons_f\Data\bullettracer\tracer_green";
 	};
 	class rhs_ammo_556x45_M855A1_Ball_Red: rhs_ammo_556x45_M855A1_Ball
 	{
+		Tracer
 	};
 	class rhs_ammo_556x45_M855A1_Ball_Green: rhs_ammo_556x45_M855A1_Ball_Red
 	{
