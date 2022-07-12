@@ -135,7 +135,7 @@ class CfgAmmo
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
 		ACE_muzzleVelocities[]={780,892,938,974,991};
-		ACE_barrelLengths[]={254,393.70001,508,609.59998};
+		ACE_barrelLengths[]={254,355.6,393.70001,508,609.59998};
 	};
 	class rhs_ammo_556x45_Mk262_Ball: B_556x45_Ball
 	{
