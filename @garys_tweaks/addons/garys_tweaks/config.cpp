@@ -135,7 +135,7 @@ class CfgAmmo
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
 		ACE_muzzleVelocities[]={780,892,938,974,991};
-		ACE_barrelLengths[]={254,393.70001,508,609.59998};
+		ACE_barrelLengths[]={254,355.6,393.70001,508,609.59998};
 	};
 	class rhs_ammo_556x45_Mk262_Ball: B_556x45_Ball
 	{
@@ -154,8 +154,8 @@ class CfgAmmo
 		ACE_bulletMass=4.9896002;
 		ACE_muzzleVelocityVariationSD=0.40000001;
 		ACE_ammoTempMuzzleVelocityShifts[]={-26.549999,-25.469999,-22.85,-20.120001,-16.98,-12.8,-7.6399999,-1.53,5.96,15.17,26.190001};
-		ACE_ballisticCoefficients[]={0.372,0.366,0.362,0.343};
-		ACE_velocityBoundaries[]={915,763,519};
+		ACE_ballisticCoefficients[]={0.362};
+		ACE_velocityBoundaries[]={};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
 		ACE_muzzleVelocities[]={624,816,832,838,863};
