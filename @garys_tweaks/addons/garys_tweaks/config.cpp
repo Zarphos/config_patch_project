@@ -51,7 +51,7 @@ class CfgAmmo
 		ACE_velocityBoundaries[]={};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=7;
-		ACE_muzzleVelocities[]={759,802,835,885,885,910,878,917,946,951,960,936};
+		ACE_muzzleVelocities[]={759,802,835,885,885,910,878,917,946,951,960,988};
 		ACE_barrelLengths[]={210.82001,238.75999,269.23999,299.72,330.20001,360.67999,391.16,419.10001,449.57999,480.06,508,609.59998};
 	};
 	class rhs_ammo_556x45_M855A1_Ball_Red: rhs_ammo_556x45_M855A1_Ball
@@ -91,7 +91,7 @@ class CfgAmmo
 		ACE_velocityBoundaries[]={};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=7;
-		ACE_muzzleVelocities[]={723,764,796,825,843,866,878,892,906,915,922,900};
+		ACE_muzzleVelocities[]={723,764,796,825,843,866,878,892,906,915,922,949};
 		ACE_barrelLengths[]={210.82001,238.75999,269.23999,299.72,330.20001,360.67999,391.16,419.10001,449.57999,480.06,508,609.59998};
 	};
 	class rhs_ammo_556x45_M855_Ball_Red: rhs_ammo_556x45_M855_Ball
@@ -134,8 +134,8 @@ class CfgAmmo
 		ACE_velocityBoundaries[]={};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
-		ACE_muzzleVelocities[]={780,886,950};
-		ACE_barrelLengths[]={254,393.70001,508};
+		ACE_muzzleVelocities[]={780,892,938,974,991};
+		ACE_barrelLengths[]={254,393.70001,508,609.59998};
 	};
 	class rhs_ammo_556x45_Mk262_Ball: B_556x45_Ball
 	{
@@ -154,12 +154,12 @@ class CfgAmmo
 		ACE_bulletMass=4.9896002;
 		ACE_muzzleVelocityVariationSD=0.40000001;
 		ACE_ammoTempMuzzleVelocityShifts[]={-26.549999,-25.469999,-22.85,-20.120001,-16.98,-12.8,-7.6399999,-1.53,5.96,15.17,26.190001};
-		ACE_ballisticCoefficients[]={0.361};
-		ACE_velocityBoundaries[]={};
+		ACE_ballisticCoefficients[]={0.372,0.366,0.362,0.343};
+		ACE_velocityBoundaries[]={915,763,519};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
-		ACE_muzzleVelocities[]={624,816,832,838};
-		ACE_barrelLengths[]={190.5,368.29999,457.20001,508};
+		ACE_muzzleVelocities[]={624,816,832,838,863};
+		ACE_barrelLengths[]={190.5,368.29999,457.20001,508,609.59998};
 	};
 	class rhs_ammo_556x45_M193_Ball: B_556x45_Ball
 	{
@@ -179,7 +179,7 @@ class CfgAmmo
 		ACE_velocityBoundaries[]={};
 		ACE_standardAtmosphere="ASM";
 		ACE_dragModel=1;
-		ACE_muzzleVelocities[]={778,822,857,888,908,932,945,960,975,985,993,990};
+		ACE_muzzleVelocities[]={778,822,857,888,908,932,945,960,975,985,993,1012};
 		ACE_barrelLengths[]={210.82001,238.75999,269.23999,299.72,330.20001,360.67999,391.16,419.10001,449.57999,480.06,508,609.59998};
 	};
 	class rhs_ammo_556x45_M196_Ball_Red: rhs_ammo_556x45_M193_Ball
@@ -543,10 +543,6 @@ class CfgWeapons
 	{
 		scope=0;
 		type=0;
-	};
-	class HeadgearItem
-	{	
-		class InventoryItem_Base_F;
 	};
 	class VestItem
 	{
@@ -1255,6 +1251,11 @@ class CfgWeapons
 		_generalMacro="HeadgearItem";
 		allowedSlots[]={901,605};
 		type=605;
+	};
+	class HelmetBase: ItemCore
+	{
+		weaponPoolAvailable=1;
+		scope=0;
 		class ItemInfo: HeadgearItem
 		{
 			mass=0;
@@ -1276,6 +1277,7 @@ class CfgWeapons
 		class ItemInfo: HeadgearItem
 		{
 			mass=30;
+			class HitpointsProtectionInfo
 			{
 				class Head
 				{
@@ -1325,195 +1327,6 @@ class CfgWeapons
 		ace_hearing_protection=0.75;
 		ace_hearing_lowerVolume=0;
 	};
-	class H_Booniehat_khk: HelmetBase
-	{
-		_generalMacro="H_Booniehat_khk";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-		class ItemInfo: ItemInfo
-		{
-			mass=10;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_Booniehat_oli: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_oli";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Booniehat_indp: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_indp";
-	class H_Booniehat_mcamo: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_mcamo";
-	class H_Booniehat_grn: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_grn";
-	};
-	class H_Booniehat_tan: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_tan";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Booniehat_dirty: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_dirty";
-	};
-	class H_Booniehat_dgtl: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_dgtl";
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Booniehat_khk_hs: H_Booniehat_khk
-	{
-		_generalMacro="H_Booniehat_khk_hs";
-		allowedFacewear[]=
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
- 
-	};
 	class H_HelmetB_plain_mcamo: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_plain_mcamo";
@@ -1523,6 +1336,7 @@ class CfgWeapons
 	class H_HelmetB_plain_blk: H_HelmetB_plain_mcamo
 	{
 		_generalMacro="H_HelmetB_plain_blk";
+	};
 	class H_HelmetSpecB: H_HelmetB_plain_mcamo
 	{
 		_generalMacro="H_HelmetSpecB";
@@ -1544,18 +1358,23 @@ class CfgWeapons
 	class H_HelmetSpecB_paint1: H_HelmetSpecB
 	{
 		_generalMacro="H_HelmetSpecB_paint1";
+	};
 	class H_HelmetSpecB_paint2: H_HelmetSpecB
 	{
 		_generalMacro="H_HelmetSpecB_paint2";
+	};
 	class H_HelmetSpecB_blk: H_HelmetSpecB
 	{
 		_generalMacro="H_HelmetSpecB_blk";
+	};
 	class H_HelmetSpecB_snakeskin: H_HelmetSpecB
 	{
 		_generalMacro="H_HelmetSpecB_snakeskin";
+	};
 	class H_HelmetSpecB_sand: H_HelmetSpecB
 	{
 		_generalMacro="H_HelmetSpecB_sand";
+	};
 	class H_HelmetIA: H_HelmetB
 	{
 		_generalMacro="H_HelmetIA";
@@ -1588,286 +1407,23 @@ class CfgWeapons
 	class H_HelmetB_grass: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_grass";
+	};
 	class H_HelmetB_snakeskin: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_snakeskin";
+	};
 	class H_HelmetB_desert: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_desert";
+	};
 	class H_HelmetB_black: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_black";
+	};
 	class H_HelmetB_sand: H_HelmetB
 	{
 		_generalMacro="H_HelmetB_sand";
-	class H_Cap_red: HelmetBase
-	{
-		_generalMacro="H_Cap_red";
-		{
-			mass=4;
-			allowedSlots[]={801,901,701,605};
-		};
 	};
-	class H_Cap_blu: H_Cap_red
-	{
-		_generalMacro="H_Cap_blu";
-		{
-			"",
-			12,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_oli: H_Cap_red
-	{
-		_generalMacro="H_Cap_oli";
-		{
-			"",
-			5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_headphones: HelmetBase
-	{
-		_generalMacro="H_Cap_headphones";
-		{
-			mass=8;
-	};
-	class H_Cap_tan: H_Cap_red
-	{
-		_generalMacro="H_Cap_tan";
-		{
-			"",
-			7.5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_blk: H_Cap_red
-	{
-		_generalMacro="H_Cap_blk";
-		{
-			"",
-			7.5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_blk_CMMG: H_Cap_red
-	{
-		_generalMacro="H_Cap_blk_CMMG";
-	class H_Cap_brn_SPECOPS: H_Cap_red
-	{
-		_generalMacro="H_Cap_brn_SPECOPS";
-	class H_Cap_tan_specops_US: H_Cap_red
-	{
-		_generalMacro="H_Cap_tan_specops_US";
-	class H_Cap_khaki_specops_UK: H_Cap_red
-	{
-		_generalMacro="H_Cap_khaki_specops_UK";
-	class H_Cap_grn: H_Cap_red
-	{
-		_generalMacro="H_Cap_grn";
-		{
-			"",
-			5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_grn_BI: H_Cap_red
-	{
-		_generalMacro="H_Cap_grn_BI";
-	class H_Cap_blk_Raven: H_Cap_red
-	{
-		_generalMacro="H_Cap_blk_Raven";
-		{
-			"",
-			5.5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Cap_blk_ION: H_Cap_red
-	{
-		_generalMacro="H_Cap_blk_ION";
-	class H_Cap_oli_hs: H_Cap_oli
-	{
-		_generalMacro="H_Cap_oli_hs";
-		allowedFacewear[]=
-		{
-			"",
-			5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
- 
-	};
-	class H_Cap_press: H_Cap_red
-	{
-		_generalMacro="H_Cap_press";
-	class H_Cap_usblack: H_Cap_red
-	{
-		_generalMacro="H_Cap_usblack";
-	class H_Cap_surfer: H_Cap_red
-	{
-		_generalMacro="H_Cap_surfer";
-	class H_Cap_police: H_Cap_red
-	{
-		_generalMacro="H_Cap_police";
 	class H_HelmetCrew_B: H_HelmetB
 	{
 		_generalMacro="H_HelmetCrew_B";
@@ -2037,50 +1593,27 @@ class CfgWeapons
 			};
 		};
 	};
-	class H_MilCap_ocamo: HelmetBase
-	{
-		_generalMacro="H_MilCap_ocamo";
-		{
-			mass=6;
-			allowedSlots[]={901,701,605};
-		};
-	};
-	class H_MilCap_mcamo: H_MilCap_ocamo
-	{
-		_generalMacro="H_MilCap_mcamo";
-	class H_MilCap_oucamo: H_MilCap_ocamo
-	{
-		_generalMacro="H_MilCap_oucamo";
-		{
-		};
-	};
-	class H_MilCap_rucamo: H_MilCap_oucamo
-	{
-		_generalMacro="H_MilCap_rucamo";
-	class H_MilCap_gry: H_MilCap_oucamo
-	{
-		_generalMacro="H_MilCap_gry";
-	class H_MilCap_dgtl: H_MilCap_oucamo
-	{
-		_generalMacro="H_MilCap_dgtl";
-	class H_MilCap_blue: H_MilCap_oucamo
-	{
-		_generalMacro="H_MilCap_blue";
+	
 	class H_HelmetB_light_grass: H_HelmetB_light
 	{
 		_generalMacro="H_HelmetB_light_grass";
+	};
 	class H_HelmetB_light_snakeskin: H_HelmetB_light
 	{
 		_generalMacro="H_HelmetB_light_snakeskin";
+	};
 	class H_HelmetB_light_desert: H_HelmetB_light
 	{
 		_generalMacro="H_HelmetB_light_desert";
+	};
 	class H_HelmetB_light_black: H_HelmetB_light
 	{
 		_generalMacro="H_HelmetB_light_black";
+	};
 	class H_HelmetB_light_sand: H_HelmetB_light
 	{
 		_generalMacro="H_HelmetB_light_sand";
+	};
 	class H_BandMask_blk: HelmetBase
 	{
 		_generalMacro="H_BandMask_blk";
@@ -2138,679 +1671,6 @@ class CfgWeapons
 		{
 		};
 	};
-	class H_Bandanna_surfer: HelmetBase
-	{
-		_generalMacro="H_Bandanna_surfer";
-		{
-			"",
-			4,
-			"G_Aviator",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-		class ItemInfo: ItemInfo
-		{
-			mass=8;
-			allowedSlots[]={901,701,605};
-		};
-	};
-	class H_Bandanna_khk: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_khk";
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_khk_hs: H_Bandanna_khk
-	{
-		_generalMacro="H_Bandanna_khk_hs";
-		allowedFacewear[]=
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
- 
-	};
-	class H_Bandanna_cbr: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_cbr";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_sgg: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_sgg";
-		{
-			"",
-			4,
-			"G_Aviator",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_sand: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_sand";
-		{
-			"",
-			4.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_surfer_blk: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_surfer_blk";
-		{
-			"",
-			5.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_surfer_grn: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_surfer_grn";
-		{
-			"",
-			4.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_gry: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_gry";
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_blu: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_blu";
-		{
-			"",
-			5.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_camo: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_camo";
-		{
-			"",
-			5.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Bandanna_mcamo: H_Bandanna_surfer
-	{
-		_generalMacro="H_Bandanna_mcamo";
-	class H_Shemag_khk: HelmetBase
-	{
-		_generalMacro="H_Shemag_khk";
-		class ItemInfo: ItemInfo
-		{
-			mass=6;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_Shemag_tan: H_Shemag_khk
-	{
-		_generalMacro="H_Shemag_tan";
-	};
-	class H_Shemag_olive: H_Shemag_khk
-	{
-		_generalMacro="H_Shemag_olive";
-		{
-			"",
-			2,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Shemag_olive_hs: H_Shemag_olive
-	{
-		_generalMacro="H_Shemag_olive_hs";
-		allowedFacewear[]=
-		{
-			"",
-			2,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
- 
-	};
-	class H_ShemagOpen_khk: HelmetBase
-	{
-		_generalMacro="H_ShemagOpen_khk";
-		{
-			"",
-			2,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-		class ItemInfo: ItemInfo
-		{
-			mass=6;
-			allowedSlots[]={801,901,701,605};
-	};
-	class H_ShemagOpen_tan: H_ShemagOpen_khk
-	{
-		_generalMacro="H_ShemagOpen_tan";
-		{
-			"",
-			2,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Beret_blk: HelmetBase
-	{
-		_generalMacro="H_Beret_blk";
-		{
-			"",
-			7.5,
-			"G_Aviator",
-			1,
-			"G_Balaclava_blk",
-			1,
-			"G_Balaclava_oli",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-		class ItemInfo: ItemInfo
-		{
-			mass=6;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_Beret_blk_POLICE: H_Beret_blk
-	{
-		_generalMacro="H_Beret_blk_POLICE";
-	};
-	class H_Beret_red: H_Beret_blk
-	{
-		_generalMacro="H_Beret_red";
-	};
-	class H_Beret_grn: H_Beret_blk
-	{
-		_generalMacro="H_Beret_grn";
-	};
-	class H_Beret_grn_SF: H_Beret_blk
-	{
-		_generalMacro="H_Beret_grn_SF";
-	};
-	class H_Beret_brn_SF: H_Beret_blk
-	{
-		_generalMacro="H_Beret_brn_SF";
-	};
-	class H_Beret_ocamo: H_Beret_blk
-	{
-		_generalMacro="H_Beret_ocamo";
-	class H_Beret_02: H_Beret_blk
-	{
-		_generalMacro="H_Beret_02";
-		{
-			mass=6;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_Beret_Colonel: H_Beret_02
-	{
-		_generalMacro="H_Beret_Colonel";
-	class H_Watchcap_blk: HelmetBase
-	{
-		_generalMacro="H_Watchcap_blk";
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-		class ItemInfo: ItemInfo
-		{
-			mass=6;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_Watchcap_cbr: H_Watchcap_blk
-	{
-		_generalMacro="H_Watchcap_cbr";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Watchcap_khk: H_Watchcap_blk
-	{
-		_generalMacro="H_Watchcap_khk";
-		{
-			"",
-			6.5,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_sport",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Watchcap_camo: H_Watchcap_blk
-	{
-		_generalMacro="H_Watchcap_camo";
-		{
-			"",
-			6,
-			"G_Aviator",
-			1,
-			"G_Bandanna_aviator",
-			1,
-			"G_Bandanna_beast",
-			1,
-			"G_Bandanna_blk",
-			1,
-			"G_Bandanna_khk",
-			1,
-			"G_Bandanna_oli",
-			1,
-			"G_Bandanna_shades",
-			1,
-			"G_Bandanna_tan",
-			1,
-			"G_Shades_Black",
-			1,
-			"G_Shades_Blue",
-			1,
-			"G_Shades_Red",
-			1,
-			"G_Shades_Green",
-			1
-		};
-	};
-	class H_Watchcap_sgg: H_Watchcap_blk
-	{
-		_generalMacro="H_Watchcap_sgg";
-	class H_TurbanO_blk: HelmetBase
-	{
-		_generalMacro="H_TurbanO_blk";
-		class ItemInfo: ItemInfo
-		{
-			mass=8;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class H_StrawHat: HelmetBase
-	{
-		_generalMacro="H_StrawHat";
-		{
-			mass=6;
-			allowedSlots[]={901,701,605};
-		};
-	};
-	class H_StrawHat_dark: H_StrawHat
-	{
-		_generalMacro="H_StrawHat_dark";
-	class H_Hat_blue: HelmetBase
-	{
-		_generalMacro="H_Hat_blue";
-		{
-			mass=6;
-			allowedSlots[]={901,701,605};
-		};
-	};
-	class H_Hat_brown: H_Hat_blue
-	{
-		_generalMacro="H_Hat_brown";
-	class H_Hat_camo: H_Hat_blue
-	{
-		_generalMacro="H_Hat_camo";
-	class H_Hat_grey: H_Hat_blue
-	{
-		_generalMacro="H_Hat_grey";
-	class H_Hat_checker: H_Hat_blue
-	{
-		_generalMacro="H_Hat_checker";
-	class H_Hat_tan: H_Hat_blue
-	{
-		_generalMacro="H_Hat_tan";
 	class H_RacingHelmet_1_F: H_HelmetB_camo
 	{
 		_generalMacro="H_RacingHelmet_1_F";
@@ -2877,22 +1737,15 @@ class CfgWeapons
 	};
 	class pasgt_dino: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_dinog: rhssaf_helmet_m97_woodland_black_ess_bare
 	{
 	};
 	class m12_dino: rhssaf_vest_md12_digital
 	{
+	};
 	class rhsusf_opscore_cover: rhsusf_opscore_01
 	{
-		dlc="RHS_USAF";
-			"contour",
-			"cover",
-			"ms2000"
-		};
-			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa",
-			"\rhsusf\addons\rhsusf_infantry2\gear\head\opscore\data\fs_cover_cb_co.paa",
-			""
-		};
 		class ItemInfo: ItemInfo
 		{
 			mass=30;
@@ -2901,7 +1754,6 @@ class CfgWeapons
 				"cover",
 				"ms2000"
 			};
-		};
 	};
 	class rhssaf_helmet_m97_nostrap_blue: rhssaf_helmet_m97_woodland
 	{
@@ -2920,8 +1772,10 @@ class CfgWeapons
 	};
 	class pasgt_bgw: rhssaf_helmet_m97_nostrap_blue
 	{
+	};
 	class pasgt_bgd: rhssaf_helmet_m97_nostrap_blue
 	{
+	};
 	class m93_bgw: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -2942,8 +1796,10 @@ class CfgWeapons
 	};
 	class m12_bgw: rhssaf_vest_md12_digital
 	{
+	};
 	class m12_bgd: rhssaf_vest_md12_digital
 	{
+	};
 	class rhs_uniform_acu_ucp: Uniform_Base
 	{
 		dlc="RHS_USAF";
@@ -2962,8 +1818,10 @@ class CfgWeapons
 	};
 	class pasgt_cp: rhsgref_helmet_pasgt_woodland_rhino
 	{
+	};
 	class pasgt_cpa: rhsgref_helmet_pasgt_woodland_rhino
 	{
+	};
 	class m93_cp: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -2984,6 +1842,7 @@ class CfgWeapons
 	};
 	class m12_cp: rhssaf_vest_md12_digital
 	{
+	};
 	class rhsusf_mbav: rhsusf_iotv_ocp_base
 	{
 		class ItemInfo: ItemInfo
@@ -3077,8 +1936,10 @@ class CfgWeapons
 	};
 	class pasgt_dm: rhsgref_helmet_pasgt_woodland_rhino
 	{
+	};
 	class pasgt_dm2: rhsgref_helmet_pasgt_woodland_rhino
 	{
+	};
 	class m93_dm: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -3099,9 +1960,9 @@ class CfgWeapons
 	};
 	class m12_dm: rhssaf_vest_md12_digital
 	{
+	};
 	class rhs_6b23_6sh116: rhs_6b23_digi
 	{
-		};
 		class ItemInfo: ItemInfo
 		{
 			};
@@ -3140,8 +2001,6 @@ class CfgWeapons
 				};
 			};
 		};
-		};
-	};
 	class rhs_6b23_6sh116_vog: rhs_6b23_6sh116
 	{
 		class ItemInfo: ItemInfo
@@ -3207,11 +2066,12 @@ class CfgWeapons
 	class v6b23fi: rhs_6b23_6sh116
 	{
 		};
-	};
 	class pasgt_ce: rhssaf_helmet_m97_nostrap_blue
 	{
+	};
 	class pasgt_dg: rhssaf_helmet_m97_nostrap_blue
 	{
+	};
 	class m93_ce: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -3494,11 +2354,13 @@ class CfgWeapons
 	};
 	class pasgt_gr: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_grg: rhssaf_helmet_m97_woodland_black_ess_bare
 	{
 	};
 	class pasgt_gra: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_grag: rhssaf_helmet_m97_woodland_black_ess_bare
 	{
 	};
@@ -3564,8 +2426,10 @@ class CfgWeapons
 	};
 	class pasgt_id: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_idd: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class m93_id: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -3586,6 +2450,7 @@ class CfgWeapons
 	};
 	class m12_id: rhssaf_vest_md12_digital
 	{
+	};
 	class rhssaf_vest_md99_woodland_rifleman: rhssaf_balistic_vest_base
 	{
 		dlc="RHS_SAF";
@@ -3661,14 +2526,19 @@ class CfgWeapons
 	};
 	class pasgt_trk: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_irn: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_ird: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_s4f: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class pasgt_syr: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class m99_syr: rhssaf_vest_md99_woodland_rifleman
 	{
 	};
@@ -3677,12 +2547,16 @@ class CfgWeapons
 	};
 	class m98_syr: rhssaf_vest_md98_rifleman
 	{
+	};
 	class m12_irn: rhssaf_vest_md12_digital
 	{
+	};
 	class m12_trk: rhssaf_vest_md12_digital
 	{
+	};
 	class pasgt_dc: rhsgref_helmet_pasgt_woodland
 	{
+	};
 	class m93_dc: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -3694,6 +2568,7 @@ class CfgWeapons
 	};
 	class m12_dc: rhssaf_vest_md12_digital
 	{
+	};
 	class CryGen3_m98: Uniform_Base
 	{
 		class ItemInfo: UniformItem
@@ -3727,23 +2602,21 @@ class CfgWeapons
 			"ws_norway\Data\occover_m98_co",
 			""
 		};
-	};
 	class opscorem98c: rhsusf_opscore_cover
 	{
 			"",
 			"ws_norway\Data\occover_m98_co",
 			""
 		};
-	};
 	class opscorem98sc: rhsusf_opscore_cover
 	{
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa",
 			"ws_norway\Data\occover_m98_co",
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa"
 		};
-	};
 	class m12_m98: rhssaf_vest_md12_digital
 	{
+	};
 	class rhs_6b23_digi_6sh92_Spetsnaz: rhs_6b23_6sh92_radio
 	{
 		class ItemInfo: ItemInfo
@@ -3828,28 +2701,24 @@ class CfgWeapons
 			"ws_russia\Data\occover_atacs_co",
 			""
 		};
-	};
 	class opscorerfc: rhsusf_opscore_cover
 	{
 			"",
 			"ws_russia\Data\occover_atacs_co",
 			""
 		};
-	};
 	class opscorerfcs: rhsusf_opscore_cover
 	{
 			"",
 			"ws_russia\Data\occover_atacs_co",
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa"
 		};
-	};
 	class opscorerff: rhsusf_opscore_cover
 	{
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa",
 			"ws_russia\Data\occover_atacs_co",
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa"
 		};
-	};
 	class gorkaEMR2: Uniform_Base
 	{
 		descriptionShort="Legendary original Gorka Suit by BARS";
@@ -4050,34 +2919,26 @@ class CfgWeapons
 	class v6b23spzb: rhs_6b23_6sh116
 	{
 		};
-	};
 	class v6b23spzbvog: rhs_6b23_6sh116_vog
 	{
 		};
-	};
 	class v6b23spzbg: rhs_6b23_6sh116
 	{
 		};
-	};
 	class v6b23spzbgvog: rhs_6b23_6sh116_vog
 	{
 		};
-	};
 	class v6b23spzbf: rhs_6b23_6sh116
 	{
-		};
 	};
 	class v6b23spzbfvog: rhs_6b23_6sh116_vog
 	{
-		};
 	};
 	class v6b23tan: rhs_6b23_6sh116
 	{
-		};
 	};
 	class v6b23tanvog: rhs_6b23_6sh116_vog
 	{
-		};
 	};
 	class v6b23spznew: rhs_6b23_digi_6sh92_Spetsnaz
 	{
@@ -4095,8 +2956,6 @@ class CfgWeapons
 	};
 	class rhsusf_mich_bare_alt: rhsusf_mich_bare
 	{
-		dlc="RHS_USAF";
-		};
 		class ItemInfo: ItemInfo
 		{
 			mass=40;
@@ -4116,67 +2975,51 @@ class CfgWeapons
 	};
 	class mich_rhino_rgr: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_rgr: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_blk: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_blk: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_od: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_od: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_tan: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_tan: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_spray1: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_spray1: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_spray2: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_spray2: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_spray3: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_spray3: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mich_rhino_spray4: rhsusf_mich_bare_alt
 	{
-		};
 	};
 	class mich_norotos_spray4: rhsusf_mich_bare_norotos_alt
 	{
-		};
 	};
 	class mbavr: rhsusf_mbav
 	{
@@ -4415,52 +3258,41 @@ class CfgWeapons
 			"",
 			"ws_uniforms2\Data\occover_mc_co",
 			""
-		};
 	};
 	class opscorems: rhsusf_opscore_cover
 	{
 			"",
 			"ws_uniforms2\Data\occover_mc_co",
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa"
-		};
 	};
 	class opscoremcs: rhsusf_opscore_cover
 	{
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa",
 			"ws_uniforms2\Data\occover_mc_co",
 			"\rhsusf\addons\rhsusf_infantry\gear\head\data\rhs_helmet_ach_acc_co.paa"
-		};
 	};
 	class opscoret: rhsusf_opscore_cover
 	{
-			"",
-			"",
-			""
-		};
 	};
 	class opscoretc: rhsusf_opscore_cover
 	{
-			"",
-			"",
-			""
-		};
 	};
 	class lbh_od: V_HarnessO_brn
 	{
-		};
-		};
 		class ItemInfo: VestItem
 		{
-			};
+			
 			containerClass="Supply90";
 			mass=10;
 			armor="2*3";
-                    passthrough=0.75;		};
+             passthrough=0.75;		};
 	};
 	class m12_khk: rhssaf_vest_md12_digital
 	{
+	};
 	class m12_grn: rhssaf_vest_md12_digital
 	{
+	};
 	class rhssaf_helmet_m97_olive_nocamo_black_ess_bare: rhssaf_helmet_m97_olive_nocamo_black_ess
 	{
 		dlc="RHS_SAF";
@@ -4537,14 +3369,17 @@ class CfgWeapons
 	};
 	class H_HelmetB_TI_arid_F: H_HelmetB_TI_tna_F
 	{
+	};
 		_generalMacro="H_HelmetB_TI_arid_F";
 	class H_HelmetO_ViperSP_hex_F: H_HelmetB
 	{
 		_generalMacro="H_HelmetO_ViperSP_hex_F";
 		DLC="Expansion";
 		descriptionShort="$STR_A3_SP_AL_V";
+		class ItemInfo: ItemInfo
 		{
 			mass=80;
+			class HitpointsProtectionInfo
 			{
 				class Head
 				{
@@ -4598,18 +3433,25 @@ class CfgWeapons
 	};
 	class V_DeckCrew_yellow_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_blue_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_green_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_red_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_white_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_brown_F: V_DeckCrew_base_F
 	{
+	};
 	class V_DeckCrew_violet_F: V_DeckCrew_base_F
 	{
+	};
 	class B_Patrol_Soldier_Leader_weapon_F: arifle_MX_GL_F
 	{
 		_generalMacro="B_Patrol_Soldier_Leader_weapon_F";
@@ -5183,6 +4025,7 @@ class CfgWeapons
 	class H_Hat_Safari_olive_F: H_Hat_Safari_base_F
 	{
 		_generalMacro="H_Hat_Safari_olive_F";
+	};
 	class H_Construction_basic_base_F: HelmetBase
 	{
 		_generalMacro="H_Construction_basic_base_F";
@@ -5201,22 +4044,29 @@ class CfgWeapons
 	};
 	class H_Construction_basic_yellow_F: H_Construction_basic_base_F
 	{
+	};
 		_generalMacro="H_Construction_basic_yellow_F";
+	};
 	class H_Construction_basic_white_F: H_Construction_basic_base_F
 	{
 		_generalMacro="H_Construction_basic_white_F";
+	};
 	class H_Construction_basic_orange_F: H_Construction_basic_base_F
 	{
 		_generalMacro="H_Construction_basic_orange_F";
+	};
 	class H_Construction_basic_red_F: H_Construction_basic_base_F
 	{
 		_generalMacro="H_Construction_basic_red_F";
+	};
 	class H_Construction_basic_vrana_F: H_Construction_basic_base_F
 	{
 		_generalMacro="H_Construction_basic_vrana_F";
+	};
 	class H_Construction_basic_black_F: H_Construction_basic_base_F
 	{
 		_generalMacro="H_Construction_basic_black_F";
+	};
 	class H_Construction_earprot_base_F: HelmetBase
 	{
 		_generalMacro="H_Construction_earprot_base_F";
@@ -5238,21 +4088,27 @@ class CfgWeapons
 	class H_Construction_earprot_yellow_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_yellow_F";
+	};
 	class H_Construction_earprot_white_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_white_F";
+	};
 	class H_Construction_earprot_orange_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_orange_F";
+	};
 	class H_Construction_earprot_red_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_red_F";
+	};
 	class H_Construction_earprot_vrana_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_vrana_F";
+	};
 	class H_Construction_earprot_black_F: H_Construction_earprot_base_F
 	{
 		_generalMacro="H_Construction_earprot_black_F";
+	};
 	class H_Construction_headset_base_F: HelmetBase
 	{
 		_generalMacro="H_Construction_headset_base_F";
@@ -5274,21 +4130,27 @@ class CfgWeapons
 	class H_Construction_headset_yellow_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_yellow_F";
+	};
 	class H_Construction_headset_white_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_white_F";
+	};
 	class H_Construction_headset_orange_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_orange_F";
+	};
 	class H_Construction_headset_red_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_red_F";
+	};
 	class H_Construction_headset_vrana_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_vrana_F";
+	};
 	class H_Construction_headset_black_F: H_Construction_headset_base_F
 	{
 		_generalMacro="H_Construction_headset_black_F";
+	};
 	class H_EarProtectors_base_F: HelmetBase
 	{
 		_generalMacro="H_EarProtectors_base_F";
@@ -5300,12 +4162,15 @@ class CfgWeapons
 	class H_EarProtectors_yellow_F: H_EarProtectors_base_F
 	{
 		_generalMacro="H_EarProtectors_yellow_F";
+	};
 	class H_EarProtectors_white_F: H_EarProtectors_base_F
 	{
 		_generalMacro="H_EarProtectors_white_F";
+	};
 	class H_EarProtectors_orange_F: H_EarProtectors_base_F
 	{
 		_generalMacro="H_EarProtectors_orange_F";
+	};
 	class H_EarProtectors_red_F: H_EarProtectors_base_F
 	{
 		_generalMacro="H_EarProtectors_red_F";
@@ -14726,451 +13591,6 @@ class CfgWeapons
 			mass=7;
 		};
 	};
-	class ACE_VMM3: Pistol_Base_F
-	{
-		descriptionShort="$STR_ace_minedetector_VMM3_Description";
-		magazines[]={};
-		modes[]=
-		{
-			"Single"
-		};
-		cursor="EmptyCursor";
-		cursorAim="EmptyCursor";
-		class Single: Mode_SemiAuto
-		{
-			sounds[]={};
-			begin1[]=
-			{
-				"",
-				1.77828,
-				1,
-				1000
-			};
-			soundBegin[]=
-			{
-				"begin1",
-				1
-			};
-			reloadTime=0.075000003;
-			recoil="recoil_pistol_light";
-			recoilProne="recoil_prone_pistol_light";
-			dispersion=0.001;
-			minRange=2;
-			minRangeProbab=0.30000001;
-			midRange=250;
-			midRangeProbab=0.69999999;
-			maxRange=400;
-			maxRangeProbab=0.050000001;
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			holsterScale=0;
-			mass=77;
-			class CowsSlot
-			{
-			};
-			class MuzzleSlot
-			{
-			};
-		};
-	};
-	class ACE_VMH3: ACE_VMM3
-	{
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			mass=55;
-		};
-	};
-	class ACE_RangeTable_82mm: ACE_ItemCore
-	{
-		descriptionShort="$STR_ace_mk6mortar_rangetable_description";
-		class ItemInfo: CBA_MiscItem_ItemInfo
-		{
-			mass=0.5;
-		};
-	};
-	class ACE_mortar_82mm: mortar_82mm
-	{
-		magazines[]=
-		{
-			"ACE_1Rnd_82mm_Mo_HE",
-			"ACE_1Rnd_82mm_Mo_Smoke",
-			"ACE_1Rnd_82mm_Mo_Illum",
-			"ACE_1Rnd_82mm_Mo_HE_Guided",
-			"ACE_1Rnd_82mm_Mo_HE_LaserGuided"
-		};
-		modes[]=
-		{
-			"Single1",
-			"Single2",
-			"Single3"
-		};
-		reloadTime=0.5;
-		magazineReloadTime=0.5;
-		class Single1: Single1
-		{
-			reloadTime=0.5;
-		};
-	};
-	class rhsgref_uniform_ttsko_forest: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_reg_TTsKO_forest";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_ttsko_mountain: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_reg_TTsKO_mountain";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_ttsko_urban: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_reg_TTsKO_urban";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_vsr: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_reg_vsr";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_para_ttsko_oxblood: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_para_TTsKO_summer";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_para_ttsko_mountain: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_para_TTsKO_fall";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_para_ttsko_urban: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_cdf_para_TTsKO_dark";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_specter: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_ins_uniform_specter";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_reed: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_ins_reed";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_alpenflage: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_alpenflage";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_flecktarn: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_flecktarn";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_flecktarn_full: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_flecktarn_full";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_tigerstripe: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_tigerstripe";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_woodland: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_woodland";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_woodland_olive: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_woodland_olive";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_ERDL: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_hidf_ERDL";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_og107: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_hidf_og107";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_og107_erdl: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_hidf_og107_erdl";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_altis_lizard: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_altis_lizard";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_olive: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_olive";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_altis_lizard_olive: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_altis_lizard_olive";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_dpm: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_dpm";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_dpm_olive: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_dpm_olive";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_3color_desert: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_3color_desert";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_gorka_1_f: Uniform_Base
-	{
-		dlc="RHS_GREF";
-		class ItemInfo: UniformItem
-		{
-			uniformClass="rhsgref_nat_gorka_1_flecktarn";
-			containerClass="Supply40";
-			mass=40;
-		};
-	};
-	class rhsgref_uniform_TLA_1: U_IG_leader
-	{
-		dlc="RHS_GREF";
-		{
-			uniformClass="rhsgref_tla_para1";
-		};
-	};
-	class rhsgref_uniform_TLA_2: U_IG_leader
-	{
-		dlc="RHS_GREF";
-		{
-			uniformClass="rhsgref_tla_para2";
-		};
-	};
-	class rhsgref_un_beret: ItemCore
-	{
-		dlc="RHS_GREF";
-		weaponPoolAvailable=1;
-		class ItemInfo: HeadgearItem
-		{
-			mass=10;
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class rhsgref_Booniehat_alpen: ItemCore
-	{
-		dlc="RHS_GREF";
-		weaponPoolAvailable=1;
-		{
-			mass=10;
-			allowedSlots[]={801,901,701,605};
-	};
-	};
-	class rhsgref_bcap_specter: H_Cap_red
-	{
-		dlc="RHS_GREF";
-		{
-			"G_Aviator",
-			"G_Balaclava_blk",
-			"G_Balaclava_oli",
-			"G_Bandanna_aviator",
-			"G_Bandanna_beast",
-			"G_Bandanna_blk",
-			"G_Bandanna_khk",
-			"G_Bandanna_oli",
-			"G_Bandanna_shades",
-			"G_Bandanna_sport",
-			"G_Bandanna_tan",
-			"G_Shades_Black",
-			"G_Shades_Blue",
-			"G_Shades_Red",
-			"G_Shades_Green"
-		};
-	};
-	class rhsgref_patrolcap_specter: rhs_fieldcap_digi2
-	{
-		dlc="RHS_GREF";
-		{
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class rhsgref_fieldcap: H_HelmetB
-	{
-		dlc="RHS_GREF";
-		allowedFacewear[]=
-		{
-			"rhs_scarf",
-			"G_Aviator"
-		};
-		{
-			allowedSlots[]={801,901,701,605};
-		};
-	};
-	class rhsgref_fieldcap_ttsko_forest: rhsgref_fieldcap
-	{
-		dlc="RHS_GREF";
-		allowedFacewear[]=
-		{
-			"G_Squares_Tinted",
-			"G_Aviator"
-		};
-	};
-	class rhsgref_fieldcap_ttsko_mountain: rhsgref_fieldcap
-	{
-		dlc="RHS_GREF";
-		allowedFacewear[]=
-		{
-			"G_Squares_Tinted",
-			"G_Aviator"
-		};
-	};
-	class rhsgref_fieldcap_ttsko_urban: rhsgref_fieldcap
-	{
-		dlc="RHS_GREF";
-		allowedFacewear[]=
-		{
-			"G_Squares_Tinted",
-			"G_Aviator"
-		};
-	};
-	class rhsgref_fieldcap_ttsko_digi: rhsgref_fieldcap
-	{
-		dlc="RHS_GREF";
-		allowedFacewear[]=
-		{
-			"rhs_scarf",
-			"G_Balaclava_blk"
-		};
-	};
 	class rhsgref_ssh68: H_HelmetB
 	{
 		allowedFacewear[]=
@@ -15599,931 +14019,6 @@ class CfgWeapons
 	class rhsgref_chicom_m88: rhsgref_chicom
 	{
  
-	};
-	class rhsgref_weap_ak103_pso1m21: rhs_weap_ak103
-	{
-		class LinkedItems
-		{
-			class LinkedItemsOptic
-			{
-				slot="CowsSlot";
-				item="rhs_acc_pso1m21";
-			};
-			class LinkedItemsMuzzle
-			{
-				slot="MuzzleSlot";
-				item="rhs_acc_dtk";
-			};
-		};
-	};
-	class rhsgref_weap_ak103_pso1m2: rhs_weap_ak103
-	{
-		class LinkedItems
-		{
-			class LinkedItemsOptic
-			{
-				slot="CowsSlot";
-				item="rhs_acc_pso1m2";
-			};
-			class LinkedItemsMuzzle
-			{
-				slot="MuzzleSlot";
-				item="rhs_acc_dtk";
-			};
-		};
-	};
-	class rhsgref_weap_svds: rhs_weap_svds
-	{
-		class LinkedItems
-		{
-			class LinkedItemsOptic
-			{
-				slot="CowsSlot";
-				item="rhs_acc_pso1m2";
-			};
-		};
-	};
-	class rhsgref_weap_savz58v_black_rxo1: rhs_weap_savz58v_rail_black
-	{
-		class LinkedItems
-		{
-			class LinkedItemsOptic
-			{
-				slot="CowsSlot";
-				item="rhsusf_acc_RX01_NoFilter";
-			};
-		};
-	};
-	class rhsgref_weap_savz58v_saboteur: rhs_weap_savz58v_ris_grip3
-	{
-		class LinkedItems
-		{
-			class LinkedItemsOptic
-			{
-				slot="CowsSlot";
-				item="rhsusf_acc_T1_low_fwd";
-			};
-			class LinkedItemsMuzzle
-			{
-				slot="MuzzleSlot";
-				item="rhsgref_acc_zendl";
-			};
-			class LinkedItemsUnder
-			{
-				slot="GripodSlot";
-				item="rhsusf_acc_tdstubby_blk";
-			};
-		};
-	};
-	class rhsgref_weap_akm_zenitco: rhs_weap_akm_zenitco01_b33_grip1
-	{
-		class LinkedItems
-		{
-			class LinkedItemsMuzzle
-			{
-				slot="MuzzleSlot";
-				item="rhs_acc_dtkakm";
-			};
-			class LinkedItemsUnder
-			{
-				slot="GripodSlot";
-				item="rhs_acc_grip_rk6";
-			};
-		};
-	};
-	class rhsgref_weap_akm_zenitco_sd: rhs_weap_akm_zenitco01_b33_grip1
-	{
-		class LinkedItems
-		{
-			class LinkedItemsMuzzle
-			{
-				slot="MuzzleSlot";
-				item="rhs_acc_pbs1";
-			};
-			class LinkedItemsUnder
-			{
-				slot="GripodSlot";
-				item="rhs_acc_grip_rk6";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3: UK3CB_BAF_L85A2
-	{
-		DLC="UK3CB_BAF_Weapons";
-		baseWeapon="UK3CB_BAF_L85A3";
-		descriptionshort="Assault Rifle<br/>Calibre: 5.56x45mm STANAG<br/>by www.3commandobrigade.com";
-		class Library
-		{
-			libtextdesc="The L85A3 is the Heckler and Koch updated version of the SA80 L85A2 and is one of the most accurate individual weapons currently available.";
-		};
-		discretedistance[]={100,200,300,400,500};
-		discretedistanceinitindex=1;
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3.rtm"
-		};
-		magazineWell[]={};
-		reloadaction="GestureReloadTRG";
-		reloadmagazinesound[]=
-		{
-			"UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\Sounds\L85_reloadmag",
-			1,
-			1,
-			30
-		};
-		initSpeed=940;
-		inertia=0.30000001;
-		dexterity=1;
-		ace_barrelLength=518;
-		ace_barrelTwist=180;
-		ace_twistDirection=1;
-		ace_railHeightAboveBore=3.0999999;
-		ace_railBaseAngle=0;
-		ace_ironSightBaseAngle=0;
-		deployedPivot="bipod";
-		hasBipod=0;
-		UK3CB_underbarrel_altWeapon_afg="UK3CB_BAF_L85A3_AFG";
-		UK3CB_underbarrel_altWeapon_afg_d="UK3CB_BAF_L85A3_AFG_D";
-		UK3CB_underbarrel_altWeapon_afg_g="UK3CB_BAF_L85A3_AFG_G";
-		UK3CB_underbarrel_altWeapon_afg_t="UK3CB_BAF_L85A3_AFG_T";
-		UK3CB_underbarrel_altWeapon_afg_w="UK3CB_BAF_L85A3_AFG_W";
-		UK3CB_underbarrel_altWeapon_grippod="UK3CB_BAF_L85A3_Grippod";
-		UK3CB_underbarrel_altWeapon_grippod_d="UK3CB_BAF_L85A3_Grippod_D";
-		UK3CB_underbarrel_altWeapon_grippod_g="UK3CB_BAF_L85A3_Grippod_G";
-		UK3CB_underbarrel_altWeapon_grippod_t="UK3CB_BAF_L85A3_Grippod_T";
-		UK3CB_underbarrel_altWeapon_grippod_w="UK3CB_BAF_L85A3_Grippod_W";
-		UK3CB_underbarrel_baseWeapon="UK3CB_BAF_L85A3";
-		UK3CB_safemode=1;
-		weaponInfoType="UK3CB_RscWeaponZeroing_UnderbarrelAcc";
-		class GunParticles: GunParticles
-		{
-			class RifleAmmoCloud
-			{
-				positionName="nabojnicestart";
-				directionName="nabojniceend";
-				effectName="UK3CB_EjectionSmoke";
-			};
-			class SmokeEffect
-			{
-				positionName="usti hlavne";
-				directionName="usti hlavne up";
-				effectName="UK3CB_HeatHaze";
-			};
-		};
-		class WeaponSlotsInfo
-		{
-			allowedslots[]={901};
-			mass=82;
-			class MuzzleSlot: UK3CB_MuzzleSlot_556_L85
-			{
-			};
-			class PointerSlot: UK3CB_FrontSideRail
-			{
-			};
-			class CowsSlot: UK3CB_OpticalRailMedium
-			{
-			};
-			class UnderBarrelSlot: UK3CB_UnderSlot_L85
-			{
-			};
-		};
-		muzzles[]=
-		{
-			"this",
-			"Safe"
-		};
-		class Safe: uk3cb_safe_base
-		{
-		};
-		class Single: Single
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType
-			{
-			};
-			class StandardSound: BaseSoundModeType
-			{
-				soundSetShot[]=
-				{
-					"3CB_BAF_L85_Closure_SoundSet",
-					"3CB_BAF_L85_Shot_SoundSet",
-					"3CB_BAF_Rifle1_Tail_SoundSet"
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				soundSetShot[]=
-				{
-					"3CB_BAF_L85_Closure_SoundSet",
-					"3CB_BAF_L85_ShotSD_SoundSet",
-					"3CB_BAF_Rifle1_SD_Tail_SoundSet"
-				};
-			};
-			reloadTime=0.092330001;
-			dispersion=0.00089999998;
-			recoil="recoil_single_mx";
-			recoilProne="recoil_single_prone_mx";
-			minRange=2;
-			minRangeProbab=0.5;
-			midRange=200;
-			midRangeProbab=0.69999999;
-			maxRange=400;
-			maxRangeProbab=0.2;
-		};
-		class FullAuto: FullAuto
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType
-			{
-			};
-			class StandardSound: BaseSoundModeType
-			{
-				soundSetShot[]=
-				{
-					"3CB_BAF_L85_Closure_SoundSet",
-					"3CB_BAF_L85_Shot_SoundSet",
-					"3CB_BAF_Rifle1_Tail_SoundSet"
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				soundSetShot[]=
-				{
-					"3CB_BAF_L85_Closure_SoundSet",
-					"3CB_BAF_L85_ShotSD_SoundSet",
-					"3CB_BAF_Rifle1_SD_Tail_SoundSet"
-				};
-			};
-			reloadTime=0.092330001;
-			dispersion=0.00089999998;
-			recoil="recoil_auto_mx";
-			recoilProne="recoil_auto_prone_mx";
-			minRange=2;
-			minRangeProbab=0.89999998;
-			midRange=15;
-			midRangeProbab=0.69999999;
-			maxRange=30;
-			maxRangeProbab=0.1;
-			aiRateOfFire=1e-006;
-		};
-		class Fullauto_medium: FullAuto
-		{
-			showToPlayer=0;
-			burst=3;
-			minRange=2;
-			minRangeProbab=0.5;
-			midRange=75;
-			midRangeProbab=0.69999999;
-			maxRange=150;
-			maxRangeProbab=0.050000001;
-			aiRateOfFire=2;
-			aiRateOfFireDistance=200;
-		};
-		class Single_medium_optics1: Single
-		{
-			showToPlayer=0;
-			requiredOpticType=1;
-			minRange=2;
-			minRangeProbab=0.2;
-			midRange=400;
-			midRangeProbab=0.69999999;
-			maxRange=600;
-			maxRangeProbab=0.30000001;
-			aiRateOfFire=4;
-			aiRateOfFireDistance=600;
-		};
-		class Single_far_optics2: Single_medium_optics1
-		{
-			requiredOpticType=2;
-			minRange=100;
-			minRangeProbab=0.2;
-			midRange=400;
-			midRangeProbab=0.60000002;
-			maxRange=800;
-			maxRangeProbab=0.050000001;
-			aiRateOfFire=6;
-			aiRateOfFireDistance=800;
-		};
-		aiDispersionCoefY=3;
-		aiDispersionCoefX=2;
-	};
-	class UK3CB_BAF_L85A3_AFG: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_afg.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_afg";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_AFG_D: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_afg.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_afg_d";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_AFG_G: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_afg.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_afg_g";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_AFG_T: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_afg.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_afg_t";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_AFG_W: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_afg.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_afg_w";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_Grippod: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_vertical.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_grippod";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_Grippod_D: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_vertical.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_grippod_d";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_Grippod_G: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_vertical.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_grippod_g";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_Grippod_T: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_vertical.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_grippod_t";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_Grippod_W: UK3CB_BAF_L85A3
-	{
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3_handpose_vertical.rtm"
-		};
-		class LinkedItems
-		{
-			class LinkedItemsUnder
-			{
-				item="UK3CB_underbarrel_acc_grippod_w";
-				slot="UnderBarrelSlot";
-			};
-		};
-	};
-	class UK3CB_BAF_L85A3_UGL: UK3CB_BAF_L85A3
-	{
-		baseWeapon="UK3CB_BAF_L85A3_UGL";
-		descriptionshort="Assault Rifle with UGL<br/>Calibre: 5.56x45mm STANAG<br/>by www.3commandobrigade.com";
-		handanim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_L85A3\data\anims\L85A3UGL.rtm"
-		};
-		muzzles[]=
-		{
-			"this",
-			"UK3CB_BAF_L123A2"
-		};
-		inertia=0.40000001;
-		dexerity=0.80000001;
-		UK3CB_underbarrel_altWeapon_afg="";
-		UK3CB_underbarrel_altWeapon_afg_d="";
-		UK3CB_underbarrel_altWeapon_afg_g="";
-		UK3CB_underbarrel_altWeapon_afg_t="";
-		UK3CB_underbarrel_altWeapon_afg_w="";
-		UK3CB_underbarrel_altWeapon_grippod="";
-		UK3CB_underbarrel_altWeapon_grippod_d="";
-		UK3CB_underbarrel_altWeapon_grippod_g="";
-		UK3CB_underbarrel_altWeapon_grippod_t="";
-		UK3CB_underbarrel_altWeapon_grippod_w="";
-		UK3CB_underbarrel_altWeapon_grippod_tan="";
-		UK3CB_underbarrel_baseWeapon="UK3CB_BAF_L85A3_UGL";
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			mass=115;
-			class UnderBarrelSlot
-			{
-			};
-		};
-		class UK3CB_BAF_L123A2: UK3CB_BAF_L123A2
-		{
-		};
-	};
-	class ACE_ATragMX: ACE_ItemCore
-	{
-		descriptionShort="$STR_ace_atragmx_Description";
-		icon="iconObject_circle";
-		mapSize=0.034000002;
-		class ItemInfo: CBA_MiscItem_ItemInfo
-		{
-			mass=2;
-		};
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_2b14: rhs_weap_2b14
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_nsvt_effects: rhs_weap_nsvt_effects
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_KORD: rhs_weap_kord
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_RHS_weap_AGS30: RHS_weap_Ags30
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_SPG9: rhs_weap_SPG9
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_9K133_launcher: rhs_weap_9K133_launcher
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_rhs_weap_9K115_2_launcher: rhs_weap_9K115_2_launcher
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_afrf3_2b14_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=20;
-			pickupTime=25;
-			class assembleTo
-			{
-				ace_csw_mortarBaseplate="rhs_2b14_82mm_msv";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=670;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_nsv_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_kordTripodLow="RHS_NSV_TriPod_MSV";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=550;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_kord_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_kordTripod="rhs_KORD_high_MSV";
-				ace_csw_kordTripodLow="rhs_KORD_MSV";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=550;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_ags30_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_sag30Tripod="RHS_AGS30_TriPod_MSV";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=400;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_spg9_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_spg9Tripod="rhs_SPG9_INS";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=1000;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_spg9m_carry: ace_compat_rhs_afrf3_spg9_carry
-	{
-		class ACE_CSW: ACE_CSW
-		{
-			class assembleTo
-			{
-				ace_csw_spg9Tripod="rhs_SPG9M_MSV";
-			};
-		};
-	};
-	class ace_compat_rhs_afrf3_metis_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="mount";
-			deployTime=4;
-			pickupTime=4;
-			deploy="rhs_Metis_9k115_2_msv";
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=300;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_afrf3_kornet_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="mount";
-			deployTime=4;
-			pickupTime=4;
-			deploy="rhs_Kornet_9M133_2_msv";
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=600;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_usf3_rhs_mortar_81mm: rhs_mortar_81mm
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_usf3_RHS_M2: RHS_M2
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_usf3_RHS_MK19: RHS_MK19
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_usf3_Rhs_weap_TOW_Launcher_static: rhs_weap_TOW_Launcher_static
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_usf3_m252_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=20;
-			pickupTime=25;
-			class assembleTo
-			{
-				ace_csw_mortarBaseplate="RHS_M252_WD";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=620;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_usf3_m2_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_m3Tripod="RHS_M2StaticMG_WD";
-				ace_csw_m3TripodLow="RHS_M2StaticMG_MiniTripod_WD";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=840;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_usf3_mk19_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_m3TripodLow="RHS_MK19_TriPod_WD";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=770;
-		};
-		modes[]={};
-	};
-	class ace_compat_rhs_usf3_tow_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_m220Tripod="RHS_TOW_TriPod_WD";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=500;
-		};
-		modes[]={};
-	};
-	class ace_dragon_super: launch_Titan_F
-	{
-		magazines[]={};
-		descriptionShort="$STR_ace_dragon_dragonDescription";
-		class ACE_CSW
-		{
-			type="mount";
-			deployTime=2;
-			pickupTime=2;
-			deploy="ace_dragon_staticBase";
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			mass=253;
-		};
-		modes[]={};
-	};
-	class ace_dragon_superStatic: missiles_titan_static
-	{
-		ace_overpressure_angle=90;
-		ace_overpressure_range=30;
-		ace_overpressure_damage=0.85000002;
-		initSpeed=120;
-		descriptionShort="$STR_ace_dragon_dragonDescription";
-		magazines[]=
-		{
-			"ace_dragon_super"
-		};
-	};
-	class ace_dragon_dummyStatic: Default
-	{
-		cursor="";
-		cursorAim="";
-		reloadTime=0;
-		canLock=0;
-		optics=0;
-		enableAttack=0;
-	};
-	class ace_dragon_sight: Binocular
-	{
-		optics=1;
-		weaponInfoType="RscWeaponEmpty";
-		reloadaction="";
-		showSwitchAction=1;
-		useAsBinocular=1;
-		descriptionShort="$STR_ace_dragon_sightDescription";
-		ace_disposable=0;
-		magazines[]={};
-		type=4096;
-		opticsPPEffects[]=
-		{
-			"OpticsCHAbera1",
-			"OpticsBlur1"
-		};
-		opticsZoomMin=0.055;
-		opticsZoomMax=0.055;
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=2;
-			pickupTime=1;
-			class assembleTo
-			{
-				ace_dragon_super_noSight="ace_dragon_super_sight";
-			};
-		};
-		class WeaponSlotsInfo
-		{
-			mass=68;
-		};
-	};
-	class ACE_RangeCard: ACE_ItemCore
-	{
-		descriptionShort="$STR_ace_rangecard_Description";
-		icon="iconObject_circle";
-		mapSize=0.034000002;
-		class ItemInfo: CBA_MiscItem_ItemInfo
-		{
-			mass=1;
-		};
-	};
-	class ace_compat_rhs_gref3_rhs_weap_DSHKM: rhs_weap_DSHKM
-	{
-		magazineReloadTime=0.5;
-	};
-	class ace_compat_rhs_gref3_dshkm_carry: Launcher_Base_F
-	{
-		class ACE_CSW
-		{
-			type="weapon";
-			deployTime=4;
-			pickupTime=4;
-			class assembleTo
-			{
-				ace_csw_kordTripod="rhsgref_ins_DSHKM";
-				ace_csw_kordTripodLow="rhsgref_ins_DSHKM_Mini_TriPod";
-			};
-		};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				iconScale=0.1;
-			};
-			mass=740;
-		};
-		modes[]={};
 	};
 	class rhsgref_helmet_pasgt_3color_desert_rhino: rhsgref_helmet_pasgt_erdl_rhino
 	{
